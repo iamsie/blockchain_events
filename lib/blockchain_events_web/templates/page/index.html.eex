@@ -1,1 +1,1 @@
-<h1> Hi </h1>
+<%= live_render(@conn, BlockchainEventsWeb.EventsListingLive, session: %{}) %>

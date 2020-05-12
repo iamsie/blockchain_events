@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <%= render("js_libs.html") %>
+    <%= csrf_meta_tag() %>
     <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
   <%= unless is_nil(get_flash(@conn, :info)) do %>
@@ -21,37 +22,6 @@
   </div>
   <div class="br-bottom"></div>
   <body>
-    <div class="wrapper">
-      <nav id="sidebar">
-        <ul class="list-unstyled components">
-          <li>
-            <a href="/">
-              <i class="fa fa-check"></i>
-              <span> Date </span>
-            </a>
-          </li>
-          <li style="margin-top: 10px">
-            <a href="/beautifier">
-              <i class="fa fa-exchange"></i>
-              <span> Event type</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- Page Content  -->
-      <div id="content" style="width: 100%">
-        <nav>
-          <div class="container-fluid">
-            <button type="button" id="sidebarCollapse" class="btn btn-icon btn-outline-secondary">
-              <i class="fa fa-align-left"></i>
-            </button>
-          </div>
-        </nav>
-        <main role="main" style="margin-left: 2%">
-          <%= @inner_content %>
-        </main>
-      </div>
-    </div>
-    <%= csrf_meta_tag() %>
+    <%= @inner_content %>
   </body>
 </html>
