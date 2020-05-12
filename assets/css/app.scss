@@ -1,0 +1,145 @@
+/* This file is for your main application css. */
+@import "./style.css";
+
+/* Alerts and form errors */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+
+.header {
+  margin-top: 1%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 1%;
+}
+
+.br-bottom {
+  border-bottom: 1px solid #ddd;
+}
+
+.wrapper {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  background: #172b4d;
+
+  color: #fff;
+  transition: all 0.3s;
+}
+#sidebar .sidebar-header strong {
+  display: none;
+}
+#sidebar.active .sidebar-header h2 {
+  display: none;
+}
+#sidebar.active ul li span {
+  display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+  display: block;
+  padding: 8px;
+}
+
+#sidebar.active {
+  min-width: 80px;
+  max-width: 80px;
+  text-align: center;
+}
+#sidebar .sidebar-header {
+  padding: 18px;
+  background: #172b4d;
+}
+
+#sidebar ul.components {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  text-align: left;
+}
+#sidebar ul li a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+#sidebar.active ul li a {
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+  margin-right: 0;
+  display: block;
+  font-size: 1.8em;
+  margin-bottom: 5px;
+}
+
+/* Same dropdown links padding*/
+#sidebar.active ul ul a {
+  padding: 10px !important;
+}
+
+/* Changing the arrow position to bottom center position, 
+   translateX(50%) works with right: 50% 
+   to accurately  center the arrow */
+#sidebar.active .dropdown-toggle::after {
+  top: auto;
+  bottom: 10px;
+  right: 50%;
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
