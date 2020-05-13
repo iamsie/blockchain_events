@@ -55,10 +55,10 @@ a:focus {
 }
 
 #sidebar {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 20%;
+  max-width: 20%;
   min-height: 100vh;
-  background: #172b4d;
+  background: #e6e7ec;
 
   color: #fff;
   transition: all 0.3s;
@@ -142,4 +142,19 @@ a:focus {
   #sidebar.active {
     margin-left: 0;
   }
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 0px;
+  width: 15%;
+  font-size: 15px;
+  color: white;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 2px;
 }
