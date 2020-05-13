@@ -19,23 +19,7 @@ defmodule GSS.Data do
           prices: String.t(),
           urls: list()
         }
-  # @enforce_keys [
-  #   :id,
-  #   :event_name,
-  #   :event_type,
-  #   :date,
-  #   :blockchain,
-  #   :technologies,
-  #   :dev_type,
-  #   :organizers,
-  #   :prize,
-  #   :price,
-  #   :summary,
-  #   :rounds_and_dates,
-  #   :prizes_description,
-  #   :prices,
-  #   :urls
-  # ]
+
   defstruct [
     :id,
     :event_name,

@@ -1,7 +1,18 @@
 <div class="wrapper">
   <%= render "sidebar.html" %>
   <main role="main" style="margin-left: 2%">
-    <h1>Hello</h1>
-  </main
-  </div>
+    <%= for event <- @ss_data do %>
+      <div class="card" style="width: 50%; margin-bottom: 1%">
+        <div style="display: flex; flex-direction: row">
+          <img class="card-img-top" style="width: 50%; height: 250px" src="https://www.mandlpaints.com/wp-content/uploads/2018/09/Lead-Gray-600x600.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= event.event_name %></h5>
+            <p class="card-text"><%= event.date %></p>
+            <a href="#" class="btn btn-primary">Read more</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </main>
+</div>
 </div>
