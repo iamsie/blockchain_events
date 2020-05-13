@@ -2,23 +2,61 @@
   <ul class="list-unstyled components">
     <li>
       <a href="/">
-        <i class="fa fa-check"></i>
-        <span> Date </span>
+        <i class="fa fa-calendar"></i>
       </a>
-    </li>
-    <li style="margin-top: 10px">
-      <a href="/beautifier">
-        <i class="fa fa-exchange"></i>
-        <span> Event type</span>
+      <span>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Date</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li>
+            <a href="#">Any date</a>
+          </li>
+          <li>
+            <a href="#">Start today</a>
+          </li>
+          <li>
+            <a href="#">Start this week</a>
+          </li>
+          <li>
+            <a href="#">Start this month</a>
+          </li>
+          <li>
+            <a href="#">Start this year</a>
+          </li>
+        </ul>
       </a>
-    </li>
-  </ul>
+    </span>
+  </li>
+  <li style="margin-top: 10px">
+    <a href="/beautifier">
+      <i class="fa fa-glass"></i>
+      <span> Event type</span>
+    </a>
+  </li>
+  <li style="margin-top: 10px">
+    <a href="/beautifier">
+      <i class="fa fa-chain"></i>
+      <span> Blockchain type</span>
+    </a>
+  </li>
+  <li style="margin-top: 10px">
+    <a href="/beautifier">
+      <i class="fa fa-money"></i>
+      <span>Price</span>
+    </a>
+  </li>
+  <li style="margin-top: 10px">
+    <a href="/beautifier">
+      <i class="fa fa-code"></i>
+      <span>Dev type</span>
+    </a>
+  </li>
+</ul>
 </nav>
 <!-- Page Content  -->
 <div id="content" style="width: 100%">
   <nav>
     <div class="container-fluid">
-      <button type="button" id="sidebarCollapse" class="btn btn-icon btn-outline-secondary">
+      <button type="button" id="sidebarCollapse" class="btn btn-icon btn-outline-secondary" style="margin-top: 1%">
         <i class="fa fa-align-left"></i>
       </button>
     </div>
