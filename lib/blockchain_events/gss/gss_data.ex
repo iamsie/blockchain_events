@@ -17,7 +17,8 @@ defmodule GSS.Data do
           rounds_and_dates: String.t(),
           prizes_description: String.t(),
           prices: String.t(),
-          urls: list()
+          urls: list(),
+          image_url: String.t()
         }
 
   defstruct [
@@ -35,6 +36,7 @@ defmodule GSS.Data do
     :rounds_and_dates,
     :prizes_description,
     :prices,
-    :urls
+    :urls,
+    :image_url
   ]
 end

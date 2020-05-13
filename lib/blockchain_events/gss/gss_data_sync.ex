@@ -12,10 +12,10 @@ defmodule GSS.DataSync do
     pid = init()
     {:ok, rows_number} = GSS.Spreadsheet.rows(pid)
 
-    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 1, column_to: 15, pad_empty: true)
+    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 1, column_to: 16, pad_empty: true)
     headers = Enum.map(headers, fn str -> String.to_atom(str) end)
 
-    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 2, rows_number, column_to: 15, pad_empty: true)
+    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 2, rows_number, column_to: 16, pad_empty: true)
 
     map =
       rows
