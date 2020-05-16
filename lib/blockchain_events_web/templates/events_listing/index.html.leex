@@ -1,48 +1,52 @@
 <div class="wrapper">
-  <%= render "sidebar.html" %>
+  <%= render("sidebar.html", date_filters: @date_filters) %>
   <main role="main" style="margin-left: 2%; margin-top: 2%">
-    <%= for event <- @ss_data do %>
-      <%= if event.event_type === "seminar" do %>
-        <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid red">
-          <div class="topright" style="background-color: red"><%= event.event_type %></div>
-        <%= else %>
-          <%= if event.event_type === "conference" do %>
-            <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid blue">
-              <div class="topright" style="background-color: blue"><%= event.event_type %></div>
-            <%= else %>
-              <%= if event.event_type === "workshop" do %>
-                <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid green">
-                  <div class="topright" style="background-color: green"><%= event.event_type %></div>
-                <%= else %>
-                  <%= if event.event_type === "course" do %>
-                    <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid yellow">
-                      <div class="topright" style="background-color: yellow; color: grey"><%= event.event_type %></div>
-                    <%= else %>
-                      <%= if event.event_type === "competition" do %>
-                        <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid orange">
-                          <div class="topright" style="background-color: orange"><%= event.event_type %></div>
-                        <%= else %>
-                          <%= if event.event_type === "hackaton" do %>
-                            <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid purple">
-                              <div class="topright" style="background-color: purple"><%= event.event_type %></div>
-                            <%= else %>
-                              <%= if event.event_type === "others" do %>
-                                <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid pink">
-                                  <div class="topright" style="background-color: pink"><%= event.event_type %></div>
-                                <%= else %>
-                                  <%= if event.event_type === "others" do %>
-                                    <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid brown">
-                                      <div class="topright" style="background-color: brown"><%= event.event_type %></div>
-                                    <% end %> <% end %> <% end %> <% end %> <% end %> <% end %> <% end %> <% end %>
-                      <div style="display: flex; flex-direction: row">
-                        <img class="card-img-top" style="width: 50%; height: 250px"  src="<%= event.image_url %>" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title" style="margin-top: 10%"><%= event.event_name %></h5>
-                          <p class="card-text" style="font-size: 10px"><%= event.date %></p>
-                          <a href="#" class="bottomright btn btn-outline-secondary" >Read more</a>
+    <%= if @ss_data === [] do %>
+      <h1> No events. Please select another date or you can add a new event </h1>
+    <% else %>
+      <%= for event <- @ss_data do %>
+        <%= if event.event_type === "seminar" do %>
+          <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid red">
+            <div class="topright" style="background-color: red"><%= event.event_type %></div>
+          <%= else %>
+            <%= if event.event_type === "conference" do %>
+              <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid blue">
+                <div class="topright" style="background-color: blue"><%= event.event_type %></div>
+              <%= else %>
+                <%= if event.event_type === "workshop" do %>
+                  <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid green">
+                    <div class="topright" style="background-color: green"><%= event.event_type %></div>
+                  <%= else %>
+                    <%= if event.event_type === "course" do %>
+                      <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid yellow">
+                        <div class="topright" style="background-color: yellow; color: grey"><%= event.event_type %></div>
+                      <%= else %>
+                        <%= if event.event_type === "competition" do %>
+                          <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid orange">
+                            <div class="topright" style="background-color: orange"><%= event.event_type %></div>
+                          <%= else %>
+                            <%= if event.event_type === "hackaton" do %>
+                              <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid purple">
+                                <div class="topright" style="background-color: purple"><%= event.event_type %></div>
+                              <%= else %>
+                                <%= if event.event_type === "others" do %>
+                                  <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid pink">
+                                    <div class="topright" style="background-color: pink"><%= event.event_type %></div>
+                                  <%= else %>
+                                    <%= if event.event_type === "others" do %>
+                                      <div class="card" style="width: 50%; margin-bottom: 1%; border-left: 6px solid brown">
+                                        <div class="topright" style="background-color: brown"><%= event.event_type %></div>
+                                      <% end %> <% end %> <% end %> <% end %> <% end %> <% end %> <% end %> <% end %>
+                        <div style="display: flex; flex-direction: row">
+                          <img class="card-img-top" style="width: 50%; height: 250px"  src="<%= event.image_url %>" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title" style="margin-top: 10%"><%= event.event_name %></h5>
+                            <p class="card-text" style="font-size: 10px"><%= event.date %></p>
+                            <a href="#" class="bottomright btn btn-outline-secondary" >Read more</a>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    <% end %>
                   <% end %>
                 </main>
               </div>

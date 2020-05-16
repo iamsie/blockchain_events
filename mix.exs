@@ -47,6 +47,7 @@ defmodule BlockchainEvents.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, "~> 0.12.0"},
       {:floki, ">= 0.0.0", only: :test},
+      {:timex, "~> 3.5"},
 
       # Google Sheets export
       {:elixir_google_spreadsheets, "~> 0.1.17"}

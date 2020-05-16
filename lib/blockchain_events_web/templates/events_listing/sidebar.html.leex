@@ -8,19 +8,34 @@
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Date</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li>
-            <a href="#">Any date</a>
+            <form phx-change="date_filters">
+              <input name="<%= @date_filters.all_dates %>" type="hidden" value="false">
+              <input type="checkbox" name="<%= @date_filters.all_dates %>" value="true" ><%= @date_filters.all_dates %>
+            </form>
           </li>
           <li>
-            <a href="#">Start today</a>
+            <form phx-change="date_filters">
+              <input name="<%= @date_filters.today %>" type="hidden" value="false">
+              <input type="checkbox" name="<%= @date_filters.today %>" value="true" ><%= @date_filters.today %>
+            </form>
           </li>
           <li>
-            <a href="#">Start this week</a>
+            <form phx-change="date_filters">
+              <input name="<%= @date_filters.week %>" type="hidden" value="false">
+              <input type="checkbox" name="<%= @date_filters.week %>" value="true" ><%= @date_filters.week %>
+            </form>
           </li>
           <li>
-            <a href="#">Start this month</a>
+            <form phx-change="date_filters">
+              <input name="<%= @date_filters.month %>" type="hidden" value="false">
+              <input type="checkbox" name="<%= @date_filters.month %>" value="true" ><%= @date_filters.month %>
+            </form>
           </li>
           <li>
-            <a href="#">Start this year</a>
+            <form phx-change="date_filters">
+              <input name="<%= @date_filters.year %>" type="hidden" value="false">
+              <input type="checkbox" name="<%= @date_filters.year %>" value="true" ><%= @date_filters.year %>
+            </form>
           </li>
         </ul>
       </a>
