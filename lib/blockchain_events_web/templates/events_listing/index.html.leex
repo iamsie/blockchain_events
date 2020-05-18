@@ -1,8 +1,8 @@
 <div class="wrapper">
-  <%= render("sidebar.html", date_filters: @date_filters) %>
+  <%= render("sidebar.html", filters: @filters, applied_filters: @applied_filters) %>
   <main role="main" style="margin-left: 2%; margin-top: 2%">
     <%= if @ss_data === [] do %>
-      <h1> No events. Please select another date or you can add a new event </h1>
+      <h1> No events. Please select other filters or you can add a new event </h1>
     <% else %>
       <%= for event <- @ss_data do %>
         <%= if event.event_type === "seminar" do %>

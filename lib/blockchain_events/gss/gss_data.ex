@@ -9,7 +9,7 @@ defmodule GSS.Data do
           date: Date.t(),
           blockchain: String.t(),
           technologies: list(),
-          dev_type: list(),
+          dev_type: String.t(),
           organizers: list(),
           prize: boolean(),
           price: boolean(),

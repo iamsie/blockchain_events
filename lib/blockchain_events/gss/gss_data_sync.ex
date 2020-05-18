@@ -40,9 +40,6 @@ defmodule GSS.DataSync do
         :technologies ->
           {k, String.split(v, ";")}
 
-        :dev_type ->
-          {k, String.split(v, ";")}
-
         :organizers ->
           {k, String.split(v, ";")}
 

@@ -1,70 +1,149 @@
   <nav id="sidebar">
   <ul class="list-unstyled components">
-    <li>
+    <form action="#" phx-submit="apply_filters">
+      <li>
+        <a href="/">
+          <i class="fa fa-calendar"></i>
+        </a>
+        <span>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Date</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <input type="radio" name="dates" value="all" >All dates
+            </li>
+            <li>
+              <input type="radio" name="dates" value="today" >Starts today
+            </li>
+            <li>
+              <input type="radio" name="dates" value="week" >Starts this week
+            </li>
+            <li>
+              <input type="radio" name="dates" value="month" >Starts this month
+            </li>
+            <li>
+              <input type="radio" name="dates" value="year" >Starts this year
+            </li>
+          </ul>
+        </a>
+      </span>
+    </li>
+    <li style="margin-top: 10px">
       <a href="/">
-        <i class="fa fa-calendar"></i>
+        <i class="fa fa-glass"></i>
       </a>
       <span>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Date</a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Event type</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li>
-            <form phx-change="date_filters">
-              <input name="<%= @date_filters.all_dates %>" type="hidden" value="false">
-              <input type="checkbox" name="<%= @date_filters.all_dates %>" value="true" ><%= @date_filters.all_dates %>
-            </form>
+            <input type="checkbox" name="all" value="true" >All types
           </li>
           <li>
-            <form phx-change="date_filters">
-              <input name="<%= @date_filters.today %>" type="hidden" value="false">
-              <input type="checkbox" name="<%= @date_filters.today %>" value="true" ><%= @date_filters.today %>
-            </form>
+            <input type="checkbox" name="seminar" value="true" >Seminar
           </li>
           <li>
-            <form phx-change="date_filters">
-              <input name="<%= @date_filters.week %>" type="hidden" value="false">
-              <input type="checkbox" name="<%= @date_filters.week %>" value="true" ><%= @date_filters.week %>
-            </form>
+            <input type="checkbox" name="conference" value="true">Conference
           </li>
           <li>
-            <form phx-change="date_filters">
-              <input name="<%= @date_filters.month %>" type="hidden" value="false">
-              <input type="checkbox" name="<%= @date_filters.month %>" value="true" ><%= @date_filters.month %>
-            </form>
+            <input type="checkbox" name="workshop" value="true" >Workshop
           </li>
           <li>
-            <form phx-change="date_filters">
-              <input name="<%= @date_filters.year %>" type="hidden" value="false">
-              <input type="checkbox" name="<%= @date_filters.year %>" value="true" ><%= @date_filters.year %>
-            </form>
+            <input type="checkbox" name="course" value="true" >Course
+          </li>
+          <li>
+            <input type="checkbox" name="competition" value="true" >Competition
+          </li>
+          <li>
+            <input type="checkbox" name="hackaton" value="true" >Hackaton
+          </li>
+          <li>
+            <input type="checkbox" name="others" value="true" >Others
           </li>
         </ul>
       </a>
     </span>
   </li>
   <li style="margin-top: 10px">
-    <a href="/beautifier">
-      <i class="fa fa-glass"></i>
-      <span> Event type</span>
-    </a>
-  </li>
-  <li style="margin-top: 10px">
-    <a href="/beautifier">
+    <a href="#">
       <i class="fa fa-chain"></i>
-      <span> Blockchain type</span>
     </a>
-  </li>
-  <li style="margin-top: 10px">
-    <a href="/beautifier">
-      <i class="fa fa-money"></i>
-      <span>Price</span>
+    <span>
+      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Blockchain type</a>
+      <ul class="collapse list-unstyled" id="pageSubmenu">
+        <li>
+          <input type="checkbox" name="all" value="bc_type" >All blockchains
+        </li>
+        <li>
+          <input type="checkbox" name="Bitcoin" value="bc_type" >Bitcoin
+        </li>
+        <li>
+          <input type="checkbox" name="Ethereum" value="bc_type">Ethereum
+        </li>
+        <li>
+          <input type="checkbox" name="Ripple" value="bc_type" >Ripple
+        </li>
+        <li>
+          <input type="checkbox" name="Tether" value="bc_type" >Tether
+        </li>
+        <li>
+          <input type="checkbox" name="EOS" value="bc_type" >EOS
+        </li>
+        <li>
+          <input type="checkbox" name="Tezos" value="bc_type" >Tezos
+        </li>
+        <li>
+          <input type="checkbox" name="Other" value="bc_type" >Other
+        </li>
+      </ul>
     </a>
-  </li>
-  <li style="margin-top: 10px">
-    <a href="/beautifier">
-      <i class="fa fa-code"></i>
-      <span>Dev type</span>
-    </a>
-  </li>
+  </span>
+</li>
+<li style="margin-top: 10px">
+  <a href="#">
+    <i class="fa fa-money"></i>
+  </a>
+  <span>
+    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Price</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu">
+      <li>
+        <input type="radio" name="price" value="all" >All events
+      </li>
+      <li>
+        <input type="radio" name="price" value="free" >Free
+      </li>
+      <li>
+        <input type="radio" name="price" value="paid" >Paid
+      </li>
+    </ul>
+  </a>
+</span>
+</li>
+<li style="margin-top: 10px">
+  <a href="#">
+    <i class="fa fa-code"></i>
+  </a>
+  <span>
+    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Dev type</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu">
+      <li>
+        <input type="radio" name="dev_type" value="all" >For all developers
+      </li>
+      <li>
+        <input type="radio" name="dev_type" value="junior" >Junior
+      </li>
+      <li>
+        <input type="radio" name="dev_type" value="middle" >Middle
+      </li>
+      <li>
+        <input type="radio" name="dev_type" value="experienced" >Experienced
+      </li>
+    </ul>
+  </a>
+</span>
+</li>
+<li>
+  <%= submit "Apply", phx_disable_with: "Applying..." %>
+</form>
+</li>
 </ul>
 </nav>
 <!-- Page Content  -->
