@@ -2,6 +2,20 @@
 @import "./style.css";
 
 /* Alerts and form errors */
+.center {
+  display: flex;
+  align-content: center;
+}
+.event {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.event-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .alert {
   padding: 15px;
   margin-bottom: 20px;

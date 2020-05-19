@@ -24,7 +24,7 @@ defmodule BlockchainEventsWeb.EventPageController do
           prize: true,
           prizes_description: "afsf",
           rounds_and_dates: "afsaf",
-          summary: nil,
+          summary: "kdskhfsg",
           technologies: ["dgdg"],
           urls: ["afsafasf"]
         },
@@ -42,7 +42,7 @@ defmodule BlockchainEventsWeb.EventPageController do
           prize: true,
           prizes_description: "xcv c",
           rounds_and_dates: "sdf vx",
-          summary: nil,
+          summary: "ndbgshb",
           technologies: ["svcxvv"],
           urls: ["sdfsf"]
         }
