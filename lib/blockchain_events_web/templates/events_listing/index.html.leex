@@ -42,7 +42,8 @@
                           <div class="card-body">
                             <h5 class="card-title" style="margin-top: 10%"><%= event.event_name %></h5>
                             <p class="card-text" style="font-size: 10px"><%= event.date %></p>
-                            <a href="#" class="bottomright btn btn-outline-secondary" >Read more</a>
+                            <%# <%= link  "Read more", to: "/event", class: "bottomright btn btn-outline-secondary", event: event.event_name %>
+                            <%= link "Read more", class: "bottomright btn btn-outline-secondary", to: Routes.event_page_path(@socket, :show, event.id) %>
                           </div>
                         </div>
                       </div>

@@ -17,6 +17,7 @@ defmodule BlockchainEventsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/event", EventPageController
   end
 
   # Other scopes may use custom stacks.

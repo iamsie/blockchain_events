@@ -90,6 +90,11 @@ defmodule BlockchainEventsWeb.EventsListingLive do
     {:noreply, assign(socket, :ss_data, ss_data)}
   end
 
+  def handle_event("read more", %{"event" => event}, socket) do
+    IO.inspect(event)
+    {:noreply, socket}
+  end
+
   def dev_type_filter(pf_data, filters) do
     if Map.has_key?(filters, "dev_type") == true do
       case filters["dev_type"] do
