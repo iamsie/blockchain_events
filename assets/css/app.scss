@@ -70,10 +70,10 @@ a:focus {
 }
 
 #sidebar {
-  min-width: 18%;
-  max-width: 18%;
+  min-width: 15%;
+  max-width: 15%;
   min-height: 100vh;
-  background: #f7f5f5;
+  background: #242849;
   color: rgb(0, 0, 0);
   transition: all 0.3s;
 }
@@ -84,6 +84,9 @@ a:focus {
   display: none;
 }
 #sidebar.active ul li span {
+  display: none;
+}
+#sidebar.active ul li button {
   display: none;
 }
 #sidebar ul li i {
@@ -99,7 +102,7 @@ a:focus {
   min-width: 80px;
   max-width: 80px;
   text-align: center;
-  background-color: #a0adf7;
+  background-color: #242849;
   color: white;
 }
 #sidebar .sidebar-header {
@@ -122,12 +125,21 @@ a:focus {
   color: #fff;
   padding: 10px;
 }
+#sidebar ul form li span a {
+  color: #a4aadb;
+}
+#sidebar ul form li span ul li {
+  color: #a4aadb;
+}
+#sidebar ul form li span ul input {
+  margin-right: 5%;
+}
 
 #sidebar ul li a {
   text-align: left;
 }
 #sidebar ul li a:hover {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 #sidebar.active ul li a {

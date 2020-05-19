@@ -6,7 +6,7 @@
           <i class="fa fa-calendar"></i>
         </a>
         <span>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Date</a>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-weight: bold;">Date</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
               <input type="radio" name="dates" value="all" >All dates
@@ -32,8 +32,8 @@
         <i class="fa fa-glass"></i>
       </a>
       <span>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Event type</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
+        <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-weight: bold;">Event type</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu2">
           <li>
             <input type="checkbox" name="all" value="true" >All types
           </li>
@@ -67,8 +67,8 @@
       <i class="fa fa-chain"></i>
     </a>
     <span>
-      <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Blockchain type</a>
-      <ul class="collapse list-unstyled" id="pageSubmenu">
+      <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-weight: bold;">Blockchain type</a>
+      <ul class="collapse list-unstyled" id="pageSubmenu3">
         <li>
           <input type="checkbox" name="all" value="bc_type" >All blockchains
         </li>
@@ -102,8 +102,8 @@
     <i class="fa fa-money"></i>
   </a>
   <span>
-    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Price</a>
-    <ul class="collapse list-unstyled" id="pageSubmenu">
+    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style=" font-weight: bold;">Price</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu4">
       <li>
         <input type="radio" name="price" value="all" >All events
       </li>
@@ -122,10 +122,10 @@
     <i class="fa fa-code"></i>
   </a>
   <span>
-    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="color: purple; font-weight: bold;">Dev type</a>
-    <ul class="collapse list-unstyled" id="pageSubmenu">
+    <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="font-weight: bold;">Dev type</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu5">
       <li>
-        <input type="radio" name="dev_type" value="all" >For all developers
+        <input type="radio" name="dev_type" value="all">For all developers
       </li>
       <li>
         <input type="radio" name="dev_type" value="junior" >Junior
@@ -141,7 +141,7 @@
 </span>
 </li>
 <li>
-  <%= submit "Apply", phx_disable_with: "Applying..." %>
+  <%= submit "Apply Filters", phx_disable_with: "Applying...", class: "btn-sm btn btn-outline-secondary btn-lg active", style: "margin-top: 10%" %>
 </form>
 </li>
 </ul>

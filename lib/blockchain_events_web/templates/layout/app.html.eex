@@ -16,12 +16,15 @@
   <%= unless is_nil(get_flash(@conn, :error)) do %>
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
   <% end %>
-  <div class="header" style="display: flex; flex-direction: row; justify-content: space-between">
-    <h3 style="color: #5e72e4">blockhain events || online format</h3>
-    <h3> Add Event </h3>
+  <div class="header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+    <h2 style="color: #007bff">blockhain events || online format</h2>
+    <button class="btn btn-sm btn-icon btn-primary" type="button" disabled>
+      <span class="btn-inner--icon"><i class="fa fa-plus-circle"></i></span>
+      <span class="btn-inner--text">Add Events</span>
+    </button>
   </div>
   <div class="br-bottom"></div>
   <body>
-    <%= @inner_content %>
+    <div style="background-color: #ededf5">  <%= @inner_content %> </div>
   </body>
 </html>
