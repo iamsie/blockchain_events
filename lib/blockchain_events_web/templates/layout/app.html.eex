@@ -25,6 +25,6 @@
   </div>
   <div class="br-bottom"></div>
   <body>
-    <div style="background-color: #ededf5">  <%= @inner_content %> </div>
+    <div style="background-color: white">  <%= @inner_content %> </div>
   </body>
 </html>

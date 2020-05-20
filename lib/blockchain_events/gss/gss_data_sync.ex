@@ -1,4 +1,5 @@
 defmodule GSS.DataSync do
+  use Timex
   alias GSS.Data
 
   def init() do
@@ -10,12 +11,13 @@ defmodule GSS.DataSync do
 
   def read_rows() do
     pid = init()
+
     {:ok, rows_number} = GSS.Spreadsheet.rows(pid)
 
-    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 1, column_to: 16, pad_empty: true)
+    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 13, column_to: 17, pad_empty: true)
     headers = Enum.map(headers, fn str -> String.to_atom(str) end)
 
-    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 2, rows_number, column_to: 16, pad_empty: true)
+    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 14, rows_number, column_to: 17, pad_empty: true)
 
     map =
       rows
@@ -24,6 +26,7 @@ defmodule GSS.DataSync do
         |> Enum.into(%{})
         |> reformat_values()
         |> Enum.into(%{})
+        |> check_relevance()
         |> struct_from_map(as: %Data{})
       end)
   end
@@ -34,30 +37,23 @@ defmodule GSS.DataSync do
         :id ->
           {k, String.to_integer(v)}
 
-        :date ->
+        :start_date ->
           {k, convert_to_date(v)}
 
-        :technologies ->
+        :end_date ->
+          {k, convert_to_date(v)}
+
+        :topics ->
           {k, String.split(v, ";")}
 
         :organizers ->
           {k, String.split(v, ";")}
 
         :prize ->
-          {k,
-           if v === "TRUE" do
-             true
-           else
-             false
-           end}
+          {k, convert_to_boolean(v)}
 
         :price ->
-          {k,
-           if v === "TRUE" do
-             true
-           else
-             false
-           end}
+          {k, convert_to_boolean(v)}
 
         :urls ->
           {k, String.split(v, ";")}
@@ -66,6 +62,14 @@ defmodule GSS.DataSync do
           {k, v}
       end
     end)
+  end
+
+  def convert_to_boolean(str) do
+    if str === "TRUE" do
+      true
+    else
+      false
+    end
   end
 
   def convert_to_date(date_str) do
@@ -78,20 +82,26 @@ defmodule GSS.DataSync do
     date
   end
 
+  def check_relevance(event_map) do
+    if Timex.before?(Timex.today(), event_map.end_date) === true, do: event_map
+  end
+
   def struct_from_map(a_map, as: a_struct) do
     # Find the keys within the map
-    keys =
-      Map.keys(a_struct)
-      |> Enum.filter(fn x -> x != :__struct__ end)
+    if a_map !== nil do
+      keys =
+        Map.keys(a_struct)
+        |> Enum.filter(fn x -> x != :__struct__ end)
 
-    # Process map, checking for both string / atom keys
-    processed_map =
-      for key <- keys, into: %{} do
-        value = Map.get(a_map, key) || Map.get(a_map, to_string(key))
-        {key, value}
-      end
+      # Process map, checking for both string / atom keys
+      processed_map =
+        for key <- keys, into: %{} do
+          value = Map.get(a_map, key)
+          {key, value}
+        end
 
-    a_struct = Map.merge(a_struct, processed_map)
-    a_struct
+      a_struct = Map.merge(a_struct, processed_map)
+      a_struct
+    end
   end
 end
