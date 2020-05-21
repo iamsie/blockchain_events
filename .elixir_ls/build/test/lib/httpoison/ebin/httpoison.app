@@ -12,4 +12,4 @@
                         'Elixir.HTTPoison.Request',
                         'Elixir.HTTPoison.Response']},
               {registered,[]},
-              {vsn,"0.13.0"}]}.
+              {vsn,"1.6.2"}]}.

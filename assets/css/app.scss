@@ -93,8 +93,8 @@ a:focus {
 }
 
 #sidebar {
-  min-width: 15%;
-  max-width: 15%;
+  min-width: 20%;
+  max-width: 20%;
   min-height: 100vh;
   background: rgb(36, 40, 73);
   background: linear-gradient(
@@ -110,6 +110,7 @@ a:focus {
 #sidebar .sidebar-header strong {
   display: none;
 }
+
 #sidebar.active .sidebar-header h2 {
   display: none;
 }

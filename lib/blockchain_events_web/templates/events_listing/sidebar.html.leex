@@ -146,9 +146,12 @@
 <!-- Page Content  -->
 <div id="content" style="width: 100%">
   <nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="display: flex; flex-direction: row; align-items: baseline">
       <button type="button" id="sidebarCollapse" class="btn btn-icon btn-outline-secondary" style="margin-top: 1%">
         <i class="fa fa-align-left"></i>
       </button>
-    </div>
-  </nav>
+      <%= f = form_for :sorting, "#", phx_change: :events_sorting, class: "form-group", style: "margin" %>
+      <%= select f, :sort_option, @sort_options, selected: @events_sort, class: "form-control form-control-sm" %>
+    </form>
+  </div>
+</nav>

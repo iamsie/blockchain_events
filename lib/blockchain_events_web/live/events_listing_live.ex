@@ -7,13 +7,17 @@ defmodule BlockchainEventsWeb.EventsListingLive do
   alias GSS.DataSync
 
   def mount(_params, _session, socket) do
-    ss_static_data = DataSync.read_rows()
+    ss_static_data = DataSync.read_rows() |> Enum.reverse()
+
+    sort_options = ["Sort by date", "Sort by new added"]
 
     socket =
       socket
       |> assign(:ss_static_data, ss_static_data)
       |> assign(:ss_data, ss_static_data)
       |> assign(:applied_filters, :applied_filters)
+      |> assign(:sort_options, sort_options)
+      |> assign(:events_sort, "Sort by new added")
 
     {:ok, socket}
   end
@@ -35,6 +39,23 @@ defmodule BlockchainEventsWeb.EventsListingLive do
       |> dev_type_filter(filters)
 
     {:noreply, assign(socket, :ss_data, ss_data)}
+  end
+
+  def handle_event("events_sorting", metadata, socket) do
+    events_sort = metadata["sorting"]["sort_option"]
+    ss_data = socket.assigns.ss_data
+
+    ss_data =
+      case events_sort do
+        "Sort by date" -> Enum.sort_by(ss_data, & &1.start_date, {:desc, Date})
+        _ -> Enum.sort_by(ss_data, & &1.id, :desc)
+      end
+
+    socket =
+      socket
+      |> assign(:ss_data, ss_data)
+
+    {:noreply, socket}
   end
 
   def dev_type_filter(pf_data, filters) do
@@ -64,13 +85,13 @@ defmodule BlockchainEventsWeb.EventsListingLive do
 
   def blockchain_type_filter(et_data, filters) do
     bc_data =
-      Enum.filter(filters, fn {k, v} -> v === "bc_type" end)
+      Enum.filter(filters, fn {_k, v} -> v === "bc_type" end)
       |> Enum.into(%{})
 
     if bc_data === %{} || Map.has_key?(bc_data, "all") do
       et_data
     else
-      bc_types = Enum.map(bc_data, fn {k, v} -> k end)
+      bc_types = Enum.map(bc_data, fn {k, _v} -> k end)
 
       Enum.filter(et_data, fn map -> map.blockchain in bc_types end)
     end
