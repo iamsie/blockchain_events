@@ -7,7 +7,7 @@ defmodule BlockchainEventsWeb.EventsListingLive do
   alias GSS.DataSync
 
   def mount(_params, _session, socket) do
-    ss_static_data = DataSync.read_rows() |> IO.inspect()
+    ss_static_data = DataSync.read_rows()
 
     socket =
       socket

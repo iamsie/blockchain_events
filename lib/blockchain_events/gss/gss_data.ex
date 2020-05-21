@@ -18,7 +18,11 @@ defmodule GSS.Data do
           rounds_and_dates: String.t(),
           prizes_description: String.t(),
           prices: String.t(),
-          urls: list(),
+          site_url: String.t(),
+          fb: String.t(),
+          twitter: String.t(),
+          telegram: String.t(),
+          youtube: String.t(),
           image_url: String.t()
         }
 
@@ -38,7 +42,11 @@ defmodule GSS.Data do
     :rounds_and_dates,
     :prizes_description,
     :prices,
-    :urls,
+    :site_url,
+    :fb,
+    :twitter,
+    :telegram,
+    :youtube,
     :image_url
   ]
 end

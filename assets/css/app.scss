@@ -6,6 +6,29 @@
   display: flex;
   align-content: center;
 }
+
+.gradient {
+  background: rgb(36, 40, 73);
+  background: linear-gradient(
+    90deg,
+    rgba(36, 40, 73, 1) 0%,
+    rgba(9, 9, 121, 1) 17%,
+    rgba(237, 237, 245, 1) 100%
+  );
+}
+.card-gradient-title {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  width: 25%;
+  font-size: 35px;
+  color: white;
+}
+
+.card-event-description {
+  position: relative;
+  top: 90%;
+}
 .event {
   display: flex;
   flex-direction: row;
@@ -73,7 +96,14 @@ a:focus {
   min-width: 15%;
   max-width: 15%;
   min-height: 100vh;
-  background: #242849;
+  background: rgb(36, 40, 73);
+  background: linear-gradient(
+    180deg,
+    rgba(36, 40, 73, 1) 0%,
+    rgba(9, 9, 121, 1) 61%,
+    rgba(153, 153, 247, 1) 100%
+  );
+
   color: rgb(0, 0, 0);
   transition: all 0.3s;
 }

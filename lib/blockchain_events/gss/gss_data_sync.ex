@@ -14,10 +14,10 @@ defmodule GSS.DataSync do
 
     {:ok, rows_number} = GSS.Spreadsheet.rows(pid)
 
-    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 13, column_to: 17, pad_empty: true)
+    {:ok, headers} = GSS.Spreadsheet.read_row(pid, 13, column_to: 21, pad_empty: true)
     headers = Enum.map(headers, fn str -> String.to_atom(str) end)
 
-    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 14, rows_number, column_to: 17, pad_empty: true)
+    {:ok, rows} = GSS.Spreadsheet.read_rows(pid, 14, rows_number, column_to: 21, pad_empty: true)
 
     map =
       rows
@@ -54,9 +54,6 @@ defmodule GSS.DataSync do
 
         :price ->
           {k, convert_to_boolean(v)}
-
-        :urls ->
-          {k, String.split(v, ";")}
 
         _ ->
           {k, v}

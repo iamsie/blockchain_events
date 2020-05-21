@@ -1,138 +1,128 @@
-<div class="event" style="margin: 1%; background-color: white">
-  <%= if @event.event_type === "seminar" do %>
-    <h1 class="center" style="text-decoration: underline; text-decoration-color: red"><%= @event.event_name %></h1>
-  <%= else %>
-    <%= if @event.event_type === "conference" do %>
-      <h1 style="text-decoration: underline; text-decoration-color: blue"><%= @event.event_name %></h1>
-    <%= else %>
-      <%= if @event.event_type === "forum" do %>
-        <h1 style="text-decoration: underline; text-decoration-color: green"><%= @event.event_name %></h1>
-      <%= else %>
-        <%= if @event.event_type === "course" do %>
-          <h1  style="text-decoration: underline; text-decoration-color: yellow"><%= @event.event_name %></h1>
-        <%= else %>
-          <%= if @event.event_type === "summit" do %>
-            <h1 style="text-decoration: underline; text-decoration-color: orange"><%= @event.event_name %></h1>
-          <%= else %>
-            <%= if @event.event_type === "hackaton" do %>
-              <h1 style="text-decoration: underline; text-decoration-color: purple"><%= @event.event_name %></h1>
-            <%= else %>
-              <%= if @event.event_type === "other" do %>
-                <h1 style="text-decoration: underline; text-decoration-color: pink"><%= @event.event_name %></h1>
-              <% end %> <% end %> <% end %> <% end %> <% end %> <% end %> <% end %>
-</div>
-<div class="event-cards" >
-  <div style="width: 15%;">
-    <div class="card card-stats" style="background-color: #ededf5">
-      <!-- Card body -->
-      <div class="card-body" style="height: 100px">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Dates</h5>
-            <span class="h4 font-weight-bold mb-0">Start date: <%= @event.start_date %>
-              End date: <%= @event.end_date %> </span>
+<div class="card gradient" style="width: 100%; height: 400px; position: relative">
+  <div class="card-title card-gradient-title">
+    <div><%= @event.event_name %></div>
+    <div style="font-size: 15px; margin-top: 5%"> Start date: <%= @event.start_date %> </div>
+    <div style="font-size: 15px; margin-top: 1%"> End date: <%= @event.end_date %> </div>
+  </div>
+  <div class="card center card-event-description" style="width: 70%; min-height: auto; margin-bottom: 2%">
+    <div class="event-cards" style="margin-top: 2%" >
+      <div style="width: 18%;">
+        <div class="card card-stats" style="background-color: #ededf5">
+          <!-- Card body -->
+          <div class="card-body" style="height: 60px">
+            <div class="row">
+              <div class="col">
+                <h6 class="card-title text-uppercase text-muted mb-0">Type</h6>
+                <span class="h4 font-weight-bold mb-0"><%= @event.event_type %></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem">
+                  <i class="fa fa-book"></i>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
-              <i class="fa fa-calendar-check-o"></i>
+        </div>
+      </div>
+      <div style="width: 18%;">
+        <div class="card card-stats" style="background-color: #ededf5">
+          <!-- Card body -->
+          <div class="card-body" style="height: 60px">
+            <div class="row">
+              <div class="col">
+                <h6 class="card-title text-uppercase text-muted mb-0">Blockchain</h6>
+                <span class="h4 font-weight-bold mb-0"><%= @event.blockchain %></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem">
+                  <i class="fa fa-chain"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 18%;">
+        <div class="card card-stats" style="background-color: #ededf5">
+          <!-- Card body -->
+          <div class="card-body" style="height: 60px">
+            <div class="row">
+              <div class="col">
+                <h6 class="card-title text-uppercase text-muted mb-0">Price</h6>
+                <span class="h4 font-weight-bold mb-0"><%= @event.price %></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem">
+                  <i class="fa fa-dollar"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 18%;">
+        <div class="card card-stats" style="background-color: #ededf5">
+          <!-- Card body -->
+          <div class="card-body"  style="height: 60px">
+            <div class="row">
+              <div class="col">
+                <h6 class="card-title text-uppercase text-muted mb-0">Prize</h6>
+                <span class="h4 font-weight-bold mb-0"><%= @event.prize %></span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem">
+                  <i class="fa fa-diamond"></i>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div style="width: 15%;">
-    <div class="card card-stats" style="background-color: #ededf5">
-      <!-- Card body -->
-      <div class="card-body" style="height: 100px">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Type</h5>
-            <span class="h2 font-weight-bold mb-0"><%= @event.event_type %></span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
-              <i class="fa fa-book"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div style="margin: 2%">
+      <h1>Event Summary</h1>
+      <p> <%= @event.summary %> </p>
+      <h1>Topics Of Interest</h1>
+      <%= for topic <- @event.topics do %>
+        <p>
+          <li> <%= topic %> </li>
+        </p>
+      <% end %>
+      <h1 style="margin-top 2%">Rounds and Dates</h1>
+      <p> <%= @event.rounds_and_dates %> </p>
+      <h1 style="margin-top: 2%">Prizes Description</h1>
+      <p> <%= @event.prizes_description %> </p>
+      <h1 style="margin-top: 2%">Prices</h1>
+      <p> <%= @event.prices %> </p>
     </div>
-  </div>
-  <div style="width: 15%;">
-    <div class="card card-stats" style="background-color: #ededf5">
-      <!-- Card body -->
-      <div class="card-body" style="height: 100px">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Blockchain</h5>
-            <span class="h2 font-weight-bold mb-0"><%= @event.blockchain %></span>
+    <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark" style="display: flex; justify-content: center; background-color: #ededf5; height: 70px">
+      <div style="display: flex; flex-direction: row;">
+        <%= if @event.site_url !== "" do %>
+          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+            <a href="<%= @event.site_url %>" > <i class="fa fa-google fa-2x" style="margin-top: 25%"></i></a>
           </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
-              <i class="fa fa-chain"></i>
-            </div>
+        <% end %>
+        <%= if @event.fb !== "" do %>
+          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
+            <a href="<%= @event.fb %>" > <i class="fa fa-facebook fa-2x" style="margin-top: 35%"></i></a>
           </div>
-        </div>
+        <% end %>
+        <%= if @event.twitter !== "" do %>
+          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
+            <a href="<%= @event.twitter %>" > <i class="fa fa-twitter fa-2x" style="margin-top: 25%"></i></a>
+          </div>
+        <% end %>
+        <%= if @event.telegram !== "" do %>
+          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
+            <a href="<%= @event.telegram %>" > <i class="fa fa-telegram fa-2x" style="margin-top: 25%"></i></a>
+          </div>
+        <% end %>
+        <%= if @event.youtube !== "" do %>
+          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
+            <a href="<%= @event.youtube %>" > <i class="fa fa-youtube-play fa-2x" style="margin-top: 25%"></i></a>
+          </div>
+        <% end %>
       </div>
-    </div>
+    </nav>
   </div>
-  <div style="width: 15%;">
-    <div class="card card-stats" style="background-color: #ededf5">
-      <!-- Card body -->
-      <div class="card-body" style="height: 100px">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Price</h5>
-            <span class="h2 font-weight-bold mb-0"><%= @event.price %></span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
-              <i class="fa fa-dollar"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="width: 15%;">
-    <div class="card card-stats" style="background-color: #ededf5">
-      <!-- Card body -->
-      <div class="card-body"  style="height: 100px">
-        <div class="row">
-          <div class="col">
-            <h5 class="card-title text-uppercase text-muted mb-0">Prize</h5>
-            <span class="h2 font-weight-bold mb-0"><%= @event.prize %></span>
-          </div>
-          <div class="col-auto">
-            <div class="icon icon-shape bg-purple text-white rounded-circle shadow">
-              <i class="fa fa-diamond"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div style="margin: 2%">
-  <h1>Event Summary</h1>
-  <h3> <%= @event.summary %> </h3>
-  <h1>Topics Of Interest</h1>
-  <%= for topic <- @event.topics do %>
-    <h3>
-      <li> <%= topic %> </li>
-    </h3>
-  <% end %>
-  <h1 style="margin-top 2%">Rounds and Dates</h1>
-  <h3> <%= @event.rounds_and_dates %> </h3>
-  <h1 style="margin-top: 2%">Prizes Description</h1>
-  <h3> <%= @event.prizes_description %> </h3>
-  <h1 style="margin-top: 2%">Prices</h1>
-  <h3> <%= @event.prices %> </h3>
-  <h1 style="margin-top 2%">Urls</h1>
-  <%= for url <- @event.urls do %>
-    <h3>
-      <li> <%= url %> </li>
-    </h3>
-  <% end %>
 </div>
