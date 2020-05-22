@@ -7,8 +7,8 @@
 # General application configuration
 use Mix.Config
 
-config :blockchain_events,
-  ecto_repos: [BlockchainEvents.Repo]
+# config :blockchain_events,
+#   ecto_repos: [BlockchainEvents.Repo]
 
 # Configures the endpoint
 config :blockchain_events, BlockchainEventsWeb.Endpoint,

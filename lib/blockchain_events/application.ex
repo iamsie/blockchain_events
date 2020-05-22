@@ -8,7 +8,7 @@ defmodule BlockchainEvents.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      BlockchainEvents.Repo,
+      # BlockchainEvents.Repo,
       # Start the Telemetry supervisor
       BlockchainEventsWeb.Telemetry,
       # Start the PubSub system

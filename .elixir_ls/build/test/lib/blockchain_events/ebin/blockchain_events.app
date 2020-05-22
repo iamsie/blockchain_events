@@ -9,7 +9,6 @@
               {modules,['Elixir.BlockchainEvents',
                         'Elixir.BlockchainEvents.Application',
                         'Elixir.BlockchainEvents.DataCase',
-                        'Elixir.BlockchainEvents.Repo',
                         'Elixir.BlockchainEventsWeb',
                         'Elixir.BlockchainEventsWeb.ChannelCase',
                         'Elixir.BlockchainEventsWeb.ConnCase',

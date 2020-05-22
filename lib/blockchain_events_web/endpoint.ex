@@ -32,7 +32,7 @@ defmodule BlockchainEventsWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :blockchain_events
+    # plug Phoenix.Ecto.CheckRepoStatus, otp_app: :blockchain_events
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
