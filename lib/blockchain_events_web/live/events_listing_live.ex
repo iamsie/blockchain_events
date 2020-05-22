@@ -165,4 +165,18 @@ defmodule BlockchainEventsWeb.EventsListingLive do
       ss_data
     end
   end
+
+  def color_label(event_type) do
+    colors = %{
+      "seminar" => "red",
+      "conference" => "blue",
+      "forum" => "green",
+      "course" => "yellow",
+      "summit" => "orange",
+      "hackaton" => "purple",
+      "other" => "pink"
+    }
+
+    colors[event_type]
+  end
 end

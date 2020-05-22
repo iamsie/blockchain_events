@@ -208,13 +208,35 @@ a:focus {
   -ms-transform: translateX(50%);
   transform: translateX(50%);
 }
+.event-item .card {
+  height: 150px;
+  margin: 30px;
+}
+
+.event-item .row {
+  max-height: 100%;
+}
+
+.card-img-top {
+  max-height: 100%;
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
 
 @media (max-width: 768px) {
-  #sidebar {
-    margin-left: -250px;
-  }
   #sidebar.active {
     margin-left: 0;
+  }
+
+  #sidebar.active {
+    display: none;
+  }
+
+  #sidebar {
+    max-width: none;
+    width: 100%;
   }
 }
 
@@ -222,9 +244,10 @@ a:focus {
   position: absolute;
   top: 8px;
   right: 0px;
-  width: 15%;
+  width: fit-content;
   font-size: 15px;
   color: white;
+  z-index: 2;
 }
 
 .bottomright {
