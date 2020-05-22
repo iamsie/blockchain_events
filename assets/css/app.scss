@@ -228,9 +228,6 @@ a:focus {
 @media (max-width: 768px) {
   #sidebar.active {
     margin-left: 0;
-  }
-
-  #sidebar.active {
     display: none;
   }
 
@@ -254,4 +251,8 @@ a:focus {
   position: absolute;
   bottom: 8px;
   right: 2px;
+  width: fit-content;
+  font-size: 15px;
+
+  z-index: 2;
 }
