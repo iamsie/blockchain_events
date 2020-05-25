@@ -6,11 +6,13 @@
     <% else %>
       <div class="row">
         <%= for event <- @ss_data do %>
-          <div class="col-sm-12 col-md-6 event-item">
-            <div class="card" style="margin-bottom: 1%;">
+          <div class="col-sm-12 col-md-12 col-lg-6 event-item">
+            <div class="card" style="margin-bottom: 1%; border-left: 6px solid <%= BlockchainEventsWeb.EventsListingLive.color_label(event.event_type) %> ">
               <div class="topright badge-pill" style="background-color: <%= BlockchainEventsWeb.EventsListingLive.color_label(event.event_type) %>"><%= event.event_type %></div>
               <div class="row">
-                <div class="card-img-top col-12 col-md-6"  style="min-height: auto; background-image: url(<%= event.image_url %>); border-left: 6px solid <%= BlockchainEventsWeb.EventsListingLive.color_label(event.event_type) %>"  alt="Card image cap"></div>
+                <div class="col-12 col-md-6 card-img-wrapper" >
+                  <img class="card-img-top " src="<%= event.image_url %>"  alt="Card image cap">
+                </div>
                 <div class="card-body col-12 col-md-6">
                   <h5 class="card-title" style="margin-top: 10%"><%= event.event_name %></h5>
                   <p class="card-text" style="font-size: 10px"><%= event.start_date %></p>

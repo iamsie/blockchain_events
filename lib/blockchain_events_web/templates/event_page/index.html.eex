@@ -1,15 +1,15 @@
-<div class="card gradient" style="width: 100%; height: 400px; position: relative">
-  <div class="card-title card-gradient-title">
+<div class="container-fluid card gradient" style="height: 28rem;">
+  <div class="col-sm-12 col-md-12  col-lg-6 card-gradient-title">
     <div><%= @event.event_name %></div>
-    <div style="font-size: 15px; margin-top: 5%"> Start date: <%= @event.start_date %> </div>
-    <div style="font-size: 15px; margin-top: 1%"> End date: <%= @event.end_date %> </div>
+    <div style="font-size: 15px; padding-top: 1rem"> Start date: <%= @event.start_date %> </div>
+    <div style="font-size: 15px; padding-top: 0.5rem"> End date: <%= @event.end_date %> </div>
   </div>
-  <div class="card center card-event-description" style="width: 70%; min-height: auto; margin-bottom: 2%">
-    <div class="event-cards" style="margin-top: 2%" >
-      <div style="width: 18%;">
-        <div class="card card-stats" style="background-color: #ededf5">
+  <div class="col-11 col-sm-11 col-md-8 col-lg-8 col-xl-8 card center card-event-description" style="min-height: auto; margin-bottom: 2%">
+    <div class="row justify-content-around" style="margin-top: 2%; margin-right: 0px; margin-left: 0px" >
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="card card-stats mb-1 mb-sm-1" style="background-color: #ededf5">
           <!-- Card body -->
-          <div class="card-body" style="height: 60px">
+          <div class="card-body">
             <div class="row">
               <div class="col">
                 <h6 class="card-title text-uppercase text-muted mb-0">Type</h6>
@@ -24,10 +24,10 @@
           </div>
         </div>
       </div>
-      <div style="width: 18%;">
-        <div class="card card-stats" style="background-color: #ededf5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="card card-stats mb-1 mb-sm-1" style="background-color: #ededf5">
           <!-- Card body -->
-          <div class="card-body" style="height: 60px">
+          <div class="card-body">
             <div class="row">
               <div class="col">
                 <h6 class="card-title text-uppercase text-muted mb-0">Blockchain</h6>
@@ -42,10 +42,10 @@
           </div>
         </div>
       </div>
-      <div style="width: 18%;">
-        <div class="card card-stats" style="background-color: #ededf5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 ">
+        <div class="card card-stats mb-1 mb-sm-1 " style="background-color: #ededf5">
           <!-- Card body -->
-          <div class="card-body" style="height: 60px">
+          <div class="card-body">
             <div class="row">
               <div class="col">
                 <h6 class="card-title text-uppercase text-muted mb-0">Price</h6>
@@ -60,10 +60,10 @@
           </div>
         </div>
       </div>
-      <div style="width: 18%;">
-        <div class="card card-stats" style="background-color: #ededf5">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <div class="card card-stats mb-1 mb-sm-1" style="background-color: #ededf5">
           <!-- Card body -->
-          <div class="card-body"  style="height: 60px">
+          <div class="card-body">
             <div class="row">
               <div class="col">
                 <h6 class="card-title text-uppercase text-muted mb-0">Prize</h6>
@@ -95,34 +95,32 @@
       <h1 style="margin-top: 2%">Prices</h1>
       <p> <%= @event.prices %> </p>
     </div>
-    <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark" style="display: flex; justify-content: center; background-color: #ededf5; height: 70px">
-      <div style="display: flex; flex-direction: row;">
-        <%= if @event.site_url !== "" do %>
-          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
-            <a href="<%= @event.site_url %>" > <i class="fa fa-google fa-2x" style="margin-top: 25%"></i></a>
-          </div>
-        <% end %>
-        <%= if @event.fb !== "" do %>
-          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
-            <a href="<%= @event.fb %>" > <i class="fa fa-facebook fa-2x" style="margin-top: 35%"></i></a>
-          </div>
-        <% end %>
-        <%= if @event.twitter !== "" do %>
-          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
-            <a href="<%= @event.twitter %>" > <i class="fa fa-twitter fa-2x" style="margin-top: 25%"></i></a>
-          </div>
-        <% end %>
-        <%= if @event.telegram !== "" do %>
-          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
-            <a href="<%= @event.telegram %>" > <i class="fa fa-telegram fa-2x" style="margin-top: 25%"></i></a>
-          </div>
-        <% end %>
-        <%= if @event.youtube !== "" do %>
-          <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="margin-left: 45%; width: 2rem; height: 2rem; text-align: center">
-            <a href="<%= @event.youtube %>" > <i class="fa fa-youtube-play fa-2x" style="margin-top: 25%"></i></a>
-          </div>
-        <% end %>
-      </div>
+    <nav class="row navbar navbar-horizontal navbar-expand-lg navbar-dark justify-content-around" style="background-color: #ededf5; height: 70px">
+      <%= if @event.site_url !== "" do %>
+        <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+          <a href="<%= @event.site_url %>" > <i class="fa fa-google fa-2x" style="margin-top: 25%"></i></a>
+        </div>
+      <% end %>
+      <%= if @event.fb !== "" do %>
+        <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+          <a href="<%= @event.fb %>" > <i class="fa fa-facebook fa-2x" style="margin-top: 35%"></i></a>
+        </div>
+      <% end %>
+      <%= if @event.twitter !== "" do %>
+        <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+          <a href="<%= @event.twitter %>" > <i class="fa fa-twitter fa-2x" style="margin-top: 25%"></i></a>
+        </div>
+      <% end %>
+      <%= if @event.telegram !== "" do %>
+        <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+          <a href="<%= @event.telegram %>" > <i class="fa fa-telegram fa-2x" style="margin-top: 25%"></i></a>
+        </div>
+      <% end %>
+      <%= if @event.youtube !== "" do %>
+        <div class="icon icon-shape bg-purple text-white rounded-circle shadow" style="width: 2rem; height: 2rem; text-align: center">
+          <a href="<%= @event.youtube %>" > <i class="fa fa-youtube-play fa-2x" style="margin-top: 25%"></i></a>
+        </div>
+      <% end %>
     </nav>
   </div>
 </div>
