@@ -50,7 +50,10 @@ defmodule BlockchainEvents.MixProject do
       {:timex, "~> 3.5"},
 
       # Google Sheets export
-      {:elixir_google_spreadsheets, "~> 0.1.17"}
+      {:elixir_google_spreadsheets, "~> 0.1.17"},
+
+      # cache
+      {:cachex, "~> 3.2"}
     ]
   end
 

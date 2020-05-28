@@ -34,3 +34,5 @@ npm-debug.log
 /priv/static/
 
 /config/blockchain_events.json
+
+/.env

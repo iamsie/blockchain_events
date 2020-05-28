@@ -1,5 +1,7 @@
 defmodule BlockchainEventsWeb.Router do
   use BlockchainEventsWeb, :router
+  import Plug.BasicAuth
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,8 +15,12 @@ defmodule BlockchainEventsWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admins_only do
+    plug :basic_auth, username: "admin", password: System.get_env("ADMIN_PASS")
+  end
+
   scope "/", BlockchainEventsWeb do
-    pipe_through :browser
+    pipe_through [:browser, :admins_only]
 
     get "/", PageController, :index
     resources "/event", EventPageController
@@ -37,7 +43,7 @@ defmodule BlockchainEventsWeb.Router do
 
     scope "/" do
       pipe_through :browser
-      live_dashboard "/dashboard", metrics: BlockchainEventsWeb.Telemetry
+      live_dashboard "/dashboard", metrics: {BlockchainEventsWeb.Telemetry, :metrics}
     end
   end
 end

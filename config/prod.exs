@@ -16,6 +16,9 @@ config :blockchain_events, BlockchainEventsWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# It needs to be uncommented
+# check_origin: ["//myapp.com"]
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
