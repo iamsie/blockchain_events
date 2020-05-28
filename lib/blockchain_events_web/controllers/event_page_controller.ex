@@ -8,7 +8,7 @@ defmodule BlockchainEventsWeb.EventPageController do
 
   def show(conn, %{"id" => id}) do
     event =
-      DataSync.read_rows()
+      DataSync.update_rows()
       |> Enum.filter(fn map -> map.id === String.to_integer(id) end)
       |> List.first()
       |> IO.inspect()

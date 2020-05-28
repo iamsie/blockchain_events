@@ -15,7 +15,7 @@ defmodule BlockchainEvents.Application do
       {Phoenix.PubSub, name: BlockchainEvents.PubSub},
       # Start the Endpoint (http/https)
       BlockchainEventsWeb.Endpoint,
-      {Cachex, :cache_warehouse}
+      {Cachex, :cache_gss_data}
       # Start a worker by calling: BlockchainEvents.Worker.start_link(arg)
       # {BlockchainEvents.Worker, arg}
     ]

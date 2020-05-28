@@ -16,11 +16,11 @@ defmodule BlockchainEventsWeb.Router do
   end
 
   pipeline :admins_only do
-    plug :basic_auth, username: "admin", password: System.get_env("ADMIN_PASS")
+    plug :basic_auth, username: "admin", password: "admin"
   end
 
   scope "/", BlockchainEventsWeb do
-    pipe_through [:browser, :admins_only]
+    pipe_through :browser
 
     get "/", PageController, :index
     resources "/event", EventPageController
@@ -42,7 +42,7 @@ defmodule BlockchainEventsWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
+      pipe_through [:browser, :admins_only]
       live_dashboard "/dashboard", metrics: {BlockchainEventsWeb.Telemetry, :metrics}
     end
   end

@@ -4,10 +4,12 @@ defmodule BlockchainEventsWeb.EventsListingLive do
   require Logger
 
   alias BlockchainEventsWeb.EventsListingView
-  alias GSS.DataSync
 
   def mount(_params, _session, socket) do
-    ss_static_data = DataSync.read_rows() |> Enum.reverse()
+    # ss_static_data = DataSync.read_rows() |> Enum.reverse()
+    GSS.DataSync.update_rows()
+    {:ok, data} = Cachex.get(:cache_gss_data, :gss)
+    ss_static_data = data |> Enum.reverse()
 
     sort_options = ["Sort by date", "Sort by new added"]
 

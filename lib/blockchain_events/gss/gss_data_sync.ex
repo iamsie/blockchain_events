@@ -9,7 +9,12 @@ defmodule GSS.DataSync do
     pid
   end
 
-  def read_rows() do
+  def update_rows() do
+    clear_cache()
+    fetch_and_cache_rows()
+  end
+
+  def fetch_and_cache_rows() do
     pid = init()
 
     {:ok, rows_number} = GSS.Spreadsheet.rows(pid)
@@ -29,6 +34,12 @@ defmodule GSS.DataSync do
         |> check_relevance()
         |> struct_from_map(as: %Data{})
       end)
+
+    Cachex.put(:cache_gss_data, :gss, map)
+  end
+
+  def clear_cache() do
+    Cachex.clear(:cache_gss_data)
   end
 
   def reformat_values(values_list) do
