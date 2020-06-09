@@ -1,22 +1,35 @@
 defmodule GSS.DataSync do
+  use GenServer
   use Timex
   alias GSS.Data
 
-  def init() do
+  def start_link(args \\ %{}, opts \\ []) do
+    GenServer.start_link(__MODULE__, args, opts)
+  end
+
+  def init(args) do
+    tick(1000, :update)
+
+    {:ok, args}
+  end
+
+  def init_sheet_supervisor() do
     {:ok, pid} =
       GSS.Spreadsheet.Supervisor.spreadsheet("1gwtJck9uYwNjFylctau0ZdlRGkN3_dLZepZPzWp4Hto")
 
     pid
   end
 
-  def update_rows() do
+  def handle_info({:tick, :update}, state) do
+    pid = init_sheet_supervisor()
+
     clear_cache()
-    fetch_and_cache_rows()
+    fetch_and_cache_rows(pid)
+
+    {:noreply, state}
   end
 
-  def fetch_and_cache_rows() do
-    pid = init()
-
+  def fetch_and_cache_rows(pid) do
     {:ok, rows_number} = GSS.Spreadsheet.rows(pid)
 
     {:ok, headers} = GSS.Spreadsheet.read_row(pid, 13, column_to: 21, pad_empty: true)
@@ -34,6 +47,8 @@ defmodule GSS.DataSync do
         |> check_relevance()
         |> struct_from_map(as: %Data{})
       end)
+
+    map = Enum.filter(map, &(&1 != nil))
 
     Cachex.put(:cache_gss_data, :gss, map)
   end
@@ -111,5 +126,9 @@ defmodule GSS.DataSync do
       a_struct = Map.merge(a_struct, processed_map)
       a_struct
     end
+  end
+
+  defp tick(interval \\ 1_000, source) when is_integer(interval) do
+    Process.send_after(self(), {:tick, source}, interval)
   end
 end

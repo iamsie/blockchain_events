@@ -7,7 +7,7 @@ defmodule BlockchainEventsWeb.EventsListingLive do
 
   def mount(_params, _session, socket) do
     # ss_static_data = DataSync.read_rows() |> Enum.reverse()
-    GSS.DataSync.update_rows()
+    # GSS.DataSync.update_rows()
     {:ok, data} = Cachex.get(:cache_gss_data, :gss)
     ss_static_data = data |> Enum.reverse()
 

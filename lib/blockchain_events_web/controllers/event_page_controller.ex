@@ -7,11 +7,12 @@ defmodule BlockchainEventsWeb.EventPageController do
   end
 
   def show(conn, %{"id" => id}) do
+    {:ok, data} = Cachex.get(:cache_gss_data, :gss)
+
     event =
-      DataSync.update_rows()
+      data
       |> Enum.filter(fn map -> map.id === String.to_integer(id) end)
       |> List.first()
-      |> IO.inspect()
 
     render(conn, "index.html", event: event)
   end
