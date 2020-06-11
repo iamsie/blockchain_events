@@ -48,6 +48,7 @@ defmodule BlockchainEvents.MixProject do
       {:phoenix_live_view, "~> 0.12.0"},
       {:floki, ">= 0.0.0", only: :test},
       {:timex, "~> 3.5"},
+      {:mix_test_watch, "~> 1.0"},
 
       # Google Sheets export
       {:elixir_google_spreadsheets, "~> 0.1.17"},
@@ -68,7 +69,7 @@ defmodule BlockchainEvents.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      test: ["test"]
     ]
   end
 end
