@@ -17,12 +17,12 @@
     <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
   <% end %>
   <div class="header" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-    <a href="/"> 
+    <a href="/">
       <h2 style="color: #007bff">blockhain events || online format</h2>
        </a>
     <button class="btn btn-sm btn-icon btn-primary" type="button" disabled>
       <span class="btn-inner--icon"><i class="fa fa-plus-circle"></i></span>
-      <span class="btn-inner--text">Add Events</span>
+      <a href="https://github.com/iamsie/blockchain_events_proposals" ><span class="btn-inner--text">Add Events</span></a>
     </button>
   </div>
   <div class="br-bottom"></div>
