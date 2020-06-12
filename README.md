@@ -1,18 +1,8 @@
 # BlockchainEvents
 
-To start your Phoenix server:
+## About 
+Here, you can see the upcoming events in the blockchain industry. Conferences, hackatons, summits, forums, and other events in one place! Moreover, all of them are online. So, you can attend the world-changing events sitting in your bedroom. 
 
-  * Setup the project with `mix setup`
-  * Start Phoenix endpoint with `mix phx.server`
+![](http://dl4.joxi.net/drive/2020/06/11/0012/0851/820051/51/7218418d7d.png)
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+Are you event's organizer? Or just want to share the amazing event with other developers? Here are the details on how to submit the form: https://github.com/iamsie/blockchain_events_proposals
